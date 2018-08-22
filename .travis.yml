@@ -15,6 +15,11 @@ install:
   - env
   - cd ../ && git clone "https://$GITHUB_API@github.com/GFY-oss/til-sites.git"
   - ls
-  - cd til-sites && mkdir "$pusher" && mv ../TIL/public/* ./
-  - ls
-  - ls -r ~
+  - cd til-sites && mkdir "$pusher" && mv ../TIL/public/* "./$pusher"
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.email "travis@travis-ci.org"
+  - git add .
+  - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  - git remote add origin-pages https://${GITHUB_API}@github.com/GFY-oss/til-sites.git
+  - git push --quiet --set-upstream origin-pages master
+  
