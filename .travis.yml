@@ -3,8 +3,9 @@ node_js:
   - "10.2"
 sudo: enabled
 install:
-  - curl https://api.github.com/repos/GFY-oss/TIL/commits/54ff1a4f3e3513b4e4788a07bcfe27b8df6fb69e > dummy.json
-  - node -e "console.log(require('./dummy.json'))"
+  - curl -H "Authorization: token $GITHUB_API" https://api.github.com/repos/GFY-oss/TIL/commits/54ff1a4f3e3513b4e4788a07bcfe27b8df6fb69e > dummy.json
+  - export pusher=$(node -e "console.log(require('./dummy.json').author.login)")
+  - env
   - export pusher=veera83372
   - npm install --global gatsby-cli
   - npm install
