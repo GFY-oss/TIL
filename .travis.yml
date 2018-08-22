@@ -4,7 +4,7 @@ node_js:
 sudo: enabled
 install:
   - curl https://api.github.com/repos/GFY-oss/TIL/commits/54ff1a4f3e3513b4e4788a07bcfe27b8df6fb69e > dummy.json
-  - export pusher=$(node -e "console.log(require('./dummy.json').author.login)" )
+  - export pusher=$(node -e "console.log(require('./dummy.json'))" )
   - npm install --global gatsby-cli
   - npm install
   - gatsby build
@@ -13,6 +13,6 @@ install:
   - env
   - cd ../ && git clone "https://$GITHUB_API@github.com/GFY-oss/til-sites.git"
   - ls
-  - cd ../til-sites && mkdir "$pusher" && mv til/public/* .
+  - cd til-sites && mkdir "$pusher" && mv TIL/public/* ./
   - ls
   - ls -r ~
