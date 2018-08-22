@@ -1,0 +1,27 @@
+{
+  "name": "srijayanth.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gatsby": "^2.0.0-beta.24",
+    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-remark": "^1.7.44",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srijayanth/srijayanth.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srijayanth/srijayanth.github.io/issues"
+  },
+  "homepage": "https://github.com/srijayanth/srijayanth.github.io#readme"
+}
