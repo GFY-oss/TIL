@@ -6,3 +6,6 @@ install:
   - npm install --global gatsby-cli
   - npm install
   - gatsby build
+  - ls
+  - pwd
+  - env
