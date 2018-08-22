@@ -15,6 +15,6 @@ install:
   - env
   - cd ../ && git clone "https://$GITHUB_API@github.com/GFY-oss/til-sites.git"
   - ls
-  - cd til-sites && mkdir "$pusher" && mv TIL/public/* ./
+  - cd til-sites && mkdir "$pusher" && mv ../TIL/public/* ./
   - ls
   - ls -r ~
