@@ -3,7 +3,7 @@ node_js:
   - "10.2"
 sudo: enabled
 install:
-  - curl -H "Authorization: token $GITHUB_API" https://api.github.com/repos/GFY-oss/TIL/commits/$(git rev-parse HEAD) > dummy.json
+  - curl  "https://$GITHUB_API@api.github.com/repos/GFY-oss/TIL/commits/$(git rev-parse HEAD)" > dummy.json
   - export pusher=$(node -e "console.log(require('./dummy.json').author.login)")
   - env
   - export pusher=veera83372
