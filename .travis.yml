@@ -17,9 +17,9 @@ install:
   - ls
   - cd til-sites && mkdir "$pusher" && mv ../TIL/public/* "./$pusher"
   - git config --global user.email "travis@travis-ci.org"
-  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "Travis CI"
   - git add .
-  - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  - git commit --message 'Travis build: by veera'
   - git remote add origin-pages https://${GITHUB_API}@github.com/GFY-oss/til-sites.git
   - git push --quiet --set-upstream origin-pages master
   
