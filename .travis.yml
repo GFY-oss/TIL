@@ -2,24 +2,16 @@ language: node_js
 node_js:
   - "10.2"
 sudo: enabled
-install:
+before_install:
   - curl  "https://$GITHUB_API@api.github.com/repos/GFY-oss/TIL/commits/$(git rev-parse HEAD)" > dummy.json
   - export pusher=$(node -e "console.log(require('./dummy.json').author.login)")
-  - env
-  - export pusher=veera83372
+  - env: REPO=GFY-oss/til-sites.git
+install:
   - npm install --global gatsby-cli
   - npm install
+script:
   - gatsby build
   - ls
   - pwd
   - env
-  - cd ../ && git clone "https://$GITHUB_API@github.com/GFY-oss/til-sites.git"
-  - ls
-  - cd til-sites && mkdir "$pusher" && mv ../TIL/public/* "./$pusher"
-  - git config --global user.email "travis@travis-ci.org"
-  - git config --global user.name "Travis CI"
-  - git add .
-  - git commit --message 'Travis build by veera'
-  - git remote add origin-pages https://${GITHUB_API}@github.com/GFY-oss/til-sites.git
-  - git push --quiet --set-upstream origin-pages master
-  
+  - ./src/scripts/initialScript.sh
