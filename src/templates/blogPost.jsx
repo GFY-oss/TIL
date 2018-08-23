@@ -5,8 +5,13 @@ export default function Template({data}) {
   const {markdownRemark} = data;
   const {frontmatter,html} = markdownRemark;
   return (<div>
-      <h2>{frontmatter.title}</h2>
-      <div dangerouslySetInnerHTML={{__html: html}}></div>
+      <div>
+        <a href="/">home</a>
+      </div>
+      <div>
+        <h2>{frontmatter.title}</h2>
+        <div dangerouslySetInnerHTML={{__html: html}}></div>
+      </div>
     </div>)
 }
 

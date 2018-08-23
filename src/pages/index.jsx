@@ -5,7 +5,7 @@ export default ({data}) => {
   const {site,allMarkdownRemark} = data;
   const posts = allMarkdownRemark.edges;
   const listOfPosts = posts.map(post=>{
-    return <li>{post.node.frontmatter.title}</li>;
+    return <li><a href={post.node.frontmatter.path} >{post.node.frontmatter.title}</a></li>;
   })
   return <div>
     <header>
