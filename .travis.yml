@@ -6,7 +6,7 @@ env: REPO=GFY-oss/til-sites.git
 before_install:
   - curl  "https://$GITHUB_API@api.github.com/repos/GFY-oss/TIL/commits/$(git rev-parse HEAD)" > dummy.json
   - export pusher=$(node -e "console.log(require('./dummy.json').author.login)")
-  - chmod +x initialScript.sh
+  - chmod +x ./src/scripts/initialScript.sh
 install:
   - npm install --global gatsby-cli
   - npm install
