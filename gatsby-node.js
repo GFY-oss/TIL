@@ -10,6 +10,7 @@ exports.createPages = ({actions, graphql}) => {
         frontmatter {
           title
           path
+          date(formatString: "YYYY/MM/DD")
         }
         excerpt(pruneLength: 5)
       }
@@ -18,11 +19,15 @@ exports.createPages = ({actions, graphql}) => {
 }	`).then(result => {
   if(result.errors)
     Promise.reject(result.errors);
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    let posts=  result.data.allMarkdownRemark.edges.sort((a,b)=> new Date(a.node.frontmatter.date.split('/')) - new Date(b.node.frontmatter.date.split('/')) );
+    posts.forEach(({ node },index,edges) => {
       createPage({
         path: node.frontmatter.path,
         component: blogTemplate,
-        context: {}, // additional data can be passed via context
+        context: {
+        prevLink:edges[index-1]?edges[index-1].node.frontmatter.path:null,
+        nextLink:edges[index+1]?edges[index+1].node.frontmatter.path:null
+        } // additional data can be passed via context
       })
     })
 })

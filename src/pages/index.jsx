@@ -3,9 +3,14 @@ import {graphql} from "gatsby";
 
 export default ({data}) => {
   const {site,allMarkdownRemark} = data;
-  const posts = allMarkdownRemark.edges;
+  const posts = allMarkdownRemark.edges.sort((a,b)=> new Date(a.node.frontmatter.date.split('/')) - new Date(b.node.frontmatter.date.split('/')) );
+
   const listOfPosts = posts.map(post=>{
-    return <li><a href={post.node.frontmatter.path} >{post.node.frontmatter.title}</a></li>;
+    return <li>
+      <a href={post.node.frontmatter.path}>
+        {post.node.frontmatter.date} - {post.node.frontmatter.title}
+      </a>
+    </li>;
   })
   return <div>
     <header>
@@ -30,6 +35,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            date(formatString: "YYYY/MM/DD")
           }
           excerpt(pruneLength: 100)
         }
