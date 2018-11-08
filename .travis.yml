@@ -11,7 +11,7 @@ install:
   - npm install --global gatsby-cli
   - npm install
 script:
-  - gatsby build
+  - gatsby build --prefix-paths
   - ls
   - pwd
   - env
