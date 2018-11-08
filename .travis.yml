@@ -22,4 +22,4 @@ deploy:
   github-token: $GITHUB_API
   keep-history: true
   on:
-    branch: something
+    branch: master
