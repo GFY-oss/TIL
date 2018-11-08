@@ -16,10 +16,10 @@ script:
   - pwd
   - env
   - ./src/scripts/initialScript.sh
-# deploy:
-#   provider: pages
-#   skip-cleanup: true
-#   github-token: $GITHUB_API
-#   keep-history: true
-#   on:
-#     branch: master
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_API
+  keep-history: true
+  on:
+    branch: master
