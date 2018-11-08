@@ -1,4 +1,4 @@
-cd $pusher
-if [[ echo $? = "1" ]]; then
-  mkdir "$pusher"
+cd "til-sites/$pusher"
+if [[ $? = "1" ]]; then
+  mkdir "til-sites/$pusher"
 fi

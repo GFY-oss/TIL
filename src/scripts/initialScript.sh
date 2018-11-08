@@ -1,6 +1,7 @@
 cd ../ && git clone "https://$GITHUB_API@github.com/$REPO"
 ls
-cd til-sites && ./pusherFolderVerifier && mv ../TIL/public/* "./$pusher"
+./pusherFolderVerifier.sh
+cd til-sites && mv ../TIL/public/* "./$pusher"
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis CI"
 git add .
