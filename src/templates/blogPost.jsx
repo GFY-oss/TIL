@@ -7,7 +7,7 @@ export default function Template({data,pageContext}) {
   console.log(process.env.APP_URL,pageContext.prevLink);
   return (<div>
       <div>
-        <a href="/">home</a>
+        <a href={process.env.APP_URL}>home</a>
       </div>
       <div>
         <h4>{frontmatter.date} - {frontmatter.title}</h4>
