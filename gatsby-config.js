@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `TIL`
+    title: `TIL`,
+    pathPrefix: `/til-sites`
   },
   plugins:[
     {
@@ -12,5 +13,4 @@ module.exports = {
     },
     `gatsby-transformer-remark`
   ],
-  pathPrefix: `til-sites/`,
 }

@@ -4,6 +4,7 @@ import {graphql} from "gatsby"
 export default function Template({data,pageContext}) {
   const {markdownRemark} = data;
   const {frontmatter,html} = markdownRemark;
+  console.log(process.env.APP_URL,pageContext.prevLink);
   return (<div>
       <div>
         <a href="/">home</a>
@@ -11,8 +12,8 @@ export default function Template({data,pageContext}) {
       <div>
         <h4>{frontmatter.date} - {frontmatter.title}</h4>
         <div dangerouslySetInnerHTML={{__html: html}}></div>
-        {pageContext.prevLink && <a href={pageContext.prevLink} > &lt;</a> }
-        {pageContext.nextLink && <a href={pageContext.nextLink} > &gt;</a> }
+        {pageContext.prevLink && <a href={process.env.APP_URL+pageContext.prevLink} > &lt;</a> }
+        {pageContext.nextLink && <a href={process.env.APP_URL+pageContext.nextLink} > &gt;</a> }
       </div>
     </div>)
 }

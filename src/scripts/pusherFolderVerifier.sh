@@ -1,4 +1,4 @@
-cd "til-sites/$pusher"
-if [[ $? = "1" ]]; then
-  mkdir "til-sites/$pusher"
+if [[  -d "til-sites/$pusher" ]]; then
+  rm -rf "til-sites/$pusher"
 fi
+mkdir "til-sites/$pusher"
